@@ -3,27 +3,35 @@ version: '3.8'
 services:
   nginx:
     container_name: nginx
-    build: requirements/nginx/.
+    build: /home/alucar/srcs/requirements/nginx/.
     ports:
       - "443:443"
     volumes:
-      - ./web:/var/www/html
+      - /home/alucar/srcs/web:/var/www/html
+    networks:
+      inception:
 
   wordpress:
     container_name: wp-php
-    build: requirements/wordpress/.
+    build: /home/alucar/srcs/requirements/wordpress/.
     volumes:
-      - ./web:/var/www/html
+      - /home/alucar/srcs/web:/var/www/html
     env_file:
       - .env
+    networks:
+      inception:
 
   mariadb:
     container_name: mariadb
-    build: requirements/mariadb/.
+    build: /home/alucar/srcs/requirements/mariadb/.
     env_file:
       - .env
     volumes:
       - mariadb_data:/var/lib/mysql
+    networks:
+      inception:
 
 volumes:
   mariadb_data:
+networks:
+  inception:

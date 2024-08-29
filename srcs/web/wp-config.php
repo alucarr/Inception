@@ -3,7 +3,7 @@
  * The base configuration for WordPress
  *
  * The wp-config.php creation script uses this file during the installation.
- * You don't have to use the website, you can copy this file to "wp-config.php"
+ * You don't have to use the web site, you can copy this file to "wp-config.php"
  * and fill in the values.
  *
  * This file contains the following configurations:
@@ -11,9 +11,10 @@
  * * Database settings
  * * Secret keys
  * * Database table prefix
+ * * Localized language
  * * ABSPATH
  *
- * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/
+ * @link https://wordpress.org/support/article/editing-wp-config-php/
  *
  * @package WordPress
  */
@@ -48,14 +49,16 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define( 'AUTH_KEY',          '}yLx!rz5(i{L~jiQWq-Gw!NL$]?u?4guLVm+YB,IR0=uCA_4J*uXk#qV}U`a{;M=' );
+define( 'SECURE_AUTH_KEY',   '=I,BQEqi!.anQ^]qQ2h*pjOZ,b7#]#-3a[H6<w>q5jh`-5=8~d6A&+f1MT*6dSj|' );
+define( 'LOGGED_IN_KEY',     'hKINZm&(Lw~!#!Li|~}KHIg5lq4,-edJ@%5{Lnsw&vip@>MJt/PgZ8j@)dX6qWM4' );
+define( 'NONCE_KEY',         'I]=GL2W2e3H8)g8r(ePYr@lK@?Td:-d4p71n>g&@bSD$p1SEr)Jo}$HMk1?sXQJk' );
+define( 'AUTH_SALT',         'o?/mEr^:((?9sH*>W3lJ%WhhG5lxq!#(/$6wWBUYM<T+IQ(7j:69NSG4d|-1q_8R' );
+define( 'SECURE_AUTH_SALT',  '8YP}o|JYlv!~;vvZR=@[oakl4N0p}_a8*ujbNB&b:z{dT_SF-(,H5Td,c1p8](U<' );
+define( 'LOGGED_IN_SALT',    'XIwmv]JPVLkT<fLJ:Q60ha-|kq?+=>{LB_$&pp?th72O**/ROO>9q|UT~koDB[72' );
+define( 'NONCE_SALT',        ']QWO +.<PU-ELF{4]X$?-2{;v)pSh4(P)UC/>;+nav68Lv{~[cuz!1kMKo_R$PIj' );
+define( 'WP_CACHE_KEY_SALT', 'yL1v,A~ ~^ij7+r0Jni3XH4b90TPM|xB=E]ta5>$t0KU!>yYo}HFwF^h.,|S6&JC' );
+
 
 /**#@-*/
 
@@ -67,6 +70,11 @@ define( 'NONCE_SALT',       'put your unique phrase here' );
  */
 $table_prefix = 'wp_';
 
+
+/* Add any custom values between this line and the "stop editing" line. */
+
+
+
 /**
  * For developers: WordPress debugging mode.
  *
@@ -77,13 +85,11 @@ $table_prefix = 'wp_';
  * For information on other constants that can be used for debugging,
  * visit the documentation.
  *
- * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
+ * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
-
-/* Add any custom values between this line and the "stop editing" line. */
-
-
+if ( ! defined( 'WP_DEBUG' ) ) {
+	define( 'WP_DEBUG', false );
+}
 
 /* That's all, stop editing! Happy publishing. */
 

@@ -15,9 +15,9 @@ RUN apt-get update && \
 RUN mkdir -p /run/php && \
     chown -R www-data:www-data /run/php
 
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-    && chmod +x wp-cli.phar \
-    && mv wp-cli.phar /usr/local/bin/wp
+# RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+#     && chmod +x wp-cli.phar \
+#     && mv wp-cli.phar /usr/local/bin/wp
 
 
 # Konfigürasyon dosyalarını ve betiği kopyala
@@ -26,6 +26,7 @@ COPY setup_wordpress.sh /setup_wordpress.sh
 
 # Betiği çalıştırılabilir yap
 RUN chmod +x /setup_wordpress.sh
+
 
 # WordPress kurulumunu yap ve PHP-FPM'i başlat
 CMD ["/setup_wordpress.sh"]
