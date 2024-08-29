@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: nginx
+    build: requirements/nginx/.
+    ports:
+      - "443:443"
+    volumes:
+      - ./web:/var/www/html
+
+  wordpress:
+    container_name: wp-php
+    build: requirements/wordpress/.
+    volumes:
+      - ./web:/var/www/html
+    env_file:
+      - .env
+
+  mariadb:
+    container_name: mariadb
+    build: requirements/mariadb/.
+    env_file:
+      - .env
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:
