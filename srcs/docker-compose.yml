@@ -7,14 +7,14 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ./web:/var/www/html
+      - /home/alucar/data/wordpress_data:/var/www/html
     networks:
       inception:
   wordpress:
     container_name: wp-php
     build: requirements/wordpress/.
     volumes:
-      - ./web:/var/www/html
+      - /home/alucar/data/wordpress_data:/var/www/html
     env_file:
       - .env
     networks:
@@ -26,7 +26,7 @@ services:
     env_file:
       - .env
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - /home/alucar/data/mariadb_data:/var/lib/mysql
     networks:
       inception:
 
