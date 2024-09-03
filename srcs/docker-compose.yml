@@ -8,13 +8,16 @@ services:
       - "443:443"
     volumes:
       - /home/alucar/data/wordpress_data:/var/www/html
+    restart: on-failure
     networks:
       inception:
+
   wordpress:
     container_name: wp-php
     build: requirements/wordpress/.
     volumes:
       - /home/alucar/data/wordpress_data:/var/www/html
+    restart: unless-stopped
     env_file:
       - .env
     networks:
@@ -27,10 +30,13 @@ services:
       - .env
     volumes:
       - /home/alucar/data/mariadb_data:/var/lib/mysql
+    restart: always
     networks:
       inception:
 
 volumes:
   mariadb_data:
+    driver: local
 networks:
-  inception:  
+  inception:
+    driver: bridge

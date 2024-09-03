@@ -9,10 +9,10 @@ RUN apt-get update && \
 RUN mkdir /run/mysqld && \
     chown mysql:mysql /run/mysqld
 
+RUN chown -R mysql:mysql /var/lib/mysql
+RUN chmod -R 755 /var/lib/mysql
+
 COPY 50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-
-
-COPY init.sql /etc/mysql/init.sql
 
 COPY installmdb.sh /usr/local/bin/installmdb.sh
 RUN chmod +x /usr/local/bin/installmdb.sh
